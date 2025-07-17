@@ -1,14 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from 'next/font/google';
+import { Playfair_Display } from 'next/font/google';
 import "./globals.css";
+import Head from 'next/head';
+import Script from 'next/script';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const geist = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono', // CSS variable name
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair', // CSS variable name
 });
 
 export const metadata = {
@@ -18,10 +21,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html data-theme="dark" lang="en" className={`${geist.variable} ${playfair.variable}`}>
+      <body>
+        <div id='holder'>
+          {children}
+        </div>
+        <Script 
+          src="https://kit.fontawesome.com/4480df3da2.js" 
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </body>
-    </html>
+    </ html>
   );
 }

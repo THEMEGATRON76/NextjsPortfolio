@@ -1,0 +1,93 @@
+.projects {
+  margin: 50px 0px 60px 0px;
+}
+
+.projects > p {
+  color: var(--text-secondary);
+}
+.projects > img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  margin-top: 8px;
+  height: auto;
+}
+.dateProjects {
+  font-size: smaller;
+}
+
+.projects > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.projects > button {
+  margin-top: 20px;
+  background-color: rgb(59, 130, 246);
+}
+.projects > button:hover {
+  background-color: rgb(37, 99, 235);
+}
+.projects > button > i {
+  font-size: 20px;
+  transition: 0.5s;
+}
+.projects > button > .fa-arrow-right {
+  font-size: medium;
+}
+.projects > button:hover > i {
+  margin-left: 5px;
+}
+.projects > div > .techTag {
+  margin-right: 10px;
+}
+.moreProjects {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.moreProjects > button {
+  background-color: var(--bg-secondary);
+  padding: 12px;
+}
+
+.moreProjects > button:hover {
+  background-color: var(--button-hover);
+}
+
+.moreProjects > button > i {
+  font-size: medium;
+  transition: 0.5s;
+}
+.moreProjects > button:hover > i {
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .projects {
+    margin: 30px 0px 40px 0px;
+  }
+
+  .projects > div {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .projects > button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects h1,
+  .projects h2 {
+    font-size: 1.5rem;
+  }
+
+  #projects p {
+    font-size: 13px;
+  }
+}

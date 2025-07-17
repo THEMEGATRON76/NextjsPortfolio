@@ -1,167 +1,485 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+.aboutMe {
+  width: 100%;
+  margin-top: 50px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+.PictureCard {
+  position: relative;
+  background-image: url('../assets/GeetanshPic.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 33px;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-bottom: 15px;
+  width: 98%;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+.PictureCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--overlay-bg);
+  border-radius: 33px;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+.PictureCard > * {
+  position: relative;
+  z-index: 2;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
+.PictureCard p {
+  width: 70%;
   font-weight: 600;
+  color: var(--text-secondary);
 }
 
-.ctas {
+.PictureCard div {
+  background: var(--glassmorphism-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.7px);
+  -webkit-backdrop-filter: blur(7.7px);
+  border: 1px solid var(--glassmorphism-border);
+  width: 50%;
+  padding: 20px;
+  color: var(--text-primary);
+}
+
+.PictureCard > div > p {
+  width: 100%;
+  color: var(--text-secondary);
+}
+
+.GitHubData {
+  width: 100%;
+  margin-top: 30px;
   display: flex;
-  gap: 16px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+.GitHubData a {
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.GitHubData a:hover {
+  color: var(--text-primary);
+}
+
+.aboutContent > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.paras {
+  width: 45%;
+}
+
+.paras p {
+  color: var(--text-secondary);
+}
+
+.buttonHolder {
+  display: flex;
+  align-items: center;
+}
+
+.gitHubButton {
+  background-color: rgb(59, 130, 246);
+  color: var(--text-primary);
+}
+
+.gitHubButton:hover {
+  background-color: rgb(37, 99, 235);
+}
+
+.gitHubButton > i {
+  font-size: 25px;
+  transition: 0.5s;
+}
+
+.gitHubButton:hover > i {
+  margin-left: 5px;
+}
+
+.rightarrow{
+  font-size: medium;
+}
+
+.contactMeButton {
+  background-color: var(--bg-secondary);
+  padding: 12px;
+  margin-left: 20px;
+  color: var(--text-primary);
+}
+
+.contactMeButton:hover {
+  background-color: var(--button-hover);
+}
+
+.contactMeButton > .fa-arrow-right {
+  font-size: medium;
+}
+
+.contactMeButton > i {
+  transition: 0.5s;
+}
+
+.contactMeButton:hover > i {
+  margin-left: 8px;
+}
+
+.flashCard {
+  margin-left: 10%;
+  width: 40%;
+  border-style: solid;
+  border-color: var(--border-color);
+  border-radius: 20px;
+  padding: 25px;
+  border-width: 1.8px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.flashCard button {
+  background-color: var(--bg-secondary);
+  width: 150px;
+  height: 45px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-primary);
+  margin-top: 15px;
+  transition: 0.4s;
+  margin-bottom: 20px;
   cursor: pointer;
+}
+
+.flashCard button:hover {
+  background-color: var(--bg-primary);
+}
+
+.codefile {
+  color: #FD3D03;
+  font-size: 28px;
+}
+
+.flashCard > div {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.smallCard {
+  background-color: var(--bg-secondary);
+  border-style: solid;
+  border-color: var(--border-color);
+  border-radius: 20px;
+  padding: 15px;
+  border-width: 1.8px;
+  color: var(--text-primary);
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+.smallMargin {
+  margin-left: 20px;
 }
 
-.footer {
-  grid-row-start: 3;
+.sectionSkills {
+  margin-top: 70px;
+}
+
+.TechDiv {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.techTag {
+  margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
 }
 
-.footer img {
-  flex-shrink: 0;
+.centerpara {
+  margin-top: 20px;
+  text-align: center;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+/* =============================== */
+/*        MOBILE STYLES           */
+/* =============================== */
+
+@media screen and (max-width: 768px) {
+  .about-me {
+    margin-top: 30px;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .PictureCard {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 0 10px;
   }
 
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
+  .PictureCard p {
+    width: 85%;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
   }
 
-  .main {
-    align-items: center;
+  .PictureCard div {
+    width: 70%;
+    padding: 15px;
+    background: var(--glassmorphism-bg);
+    border: 1px solid var(--glassmorphism-border);
+    color: var(--text-primary);
   }
 
-  .main ol {
+  .PictureCard h1 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+  }
+
+  .PictureCard h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  .GitHubData {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .GitHubData a {
+    font-size: 12px;
+    flex: 1 1 45%;
     text-align: center;
   }
 
-  .ctas {
+  .aboutContent > div {
     flex-direction: column;
   }
 
-  .ctas a {
+  .paras {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .paras p {
     font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
   }
 
-  a.secondary {
-    min-width: auto;
+  .buttonHolder {
+    flex-direction: column;
   }
 
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
+  .gitHubButton {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .contactMeButton {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .flashCard {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .flashCard > div {
+    flex-direction: column;
+  }
+
+  .smallCard {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .smallMargin {
+    margin-left: 0;
+  }
+
+  .sectionSkills {
+    margin-top: 50px;
+  }
+
+  .TechDiv {
     justify-content: center;
+  }
+
+  .techTag {
+    margin: 5px !important;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+@media screen and (max-width: 480px) {
+  .PictureCard {
+    padding: 15px;
+    margin: 0 5px;
+    background-image: url('../assets/mu-pic.png');
+    background-size: cover;
+    background-position: -20px -10px;
+    width: 91%;
+  }
+
+  .PictureCard h1 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .PictureCard h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .PictureCard p {
+    width: 69%;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .PictureCard div {
+    width: 90%;
+    padding: 12px;
+    color: var(--text-primary);
+    border: 1px solid var(--glassmorphism-border);
+    background: var(--glassmorphism-bg);
+  }
+
+  .PictureCard > div > h3 {
+    font-size: 0.9rem;
+  }
+
+  .PictureCard > div > p {
+    font-size: 12px;
+  }
+
+  .GitHubData {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .GitHubData a {
+    flex: none;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--hover-bg);
+    color: var(--text-secondary);
+  }
+
+  .aboutContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .paras p {
+    font-size: 13px;
+  }
+
+  .button {
+    padding: 12px 16px;
+    font-size: 16px;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+  }
+
+  .buttonHolder {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .buttonHolder > div {
+    display: block;
+  }
+
+  .gitHubButton,
+  .contactMeButton {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px 10px 0px 10px;
+    margin-left: 30px;
+  }
+
+  .contactMeButton {
+    width: 266px;
+  }
+
+  .gitHubButton > .fa-brands {
+    margin-left: 25px;
+  }
+
+  .contactMeButton > .fa-brands {
+    margin-left: 65px;
+  }
+
+  .flashCard {
+    padding: 15px;
+    width: 92%;
+  }
+
+  .flashCard h3 {
+    font-size: 1.1rem;
+  }
+
+  .flashCard p {
+    font-size: 13px;
+  }
+
+  .flashCard button {
+    width: 100%;
+    height: 40px;
+  }
+
+  .smallCard {
+    padding: 12px;
+  }
+
+  .smallCard h4 {
+    font-size: 1rem;
+  }
+
+  .smallCard p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .PictureCard {
+    background-position: -70px;
+  }
+  .gitHubButton,
+  .contactMeButton {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px 10px 0px 10px;
+    margin-left: 30px;
+  }
+  .gitHubButton,
+  .contactMeButton {
+    margin-left: 20px;
+  }
+  .contactMeButton {
+    width: 259px;
   }
 }
