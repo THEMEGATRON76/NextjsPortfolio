@@ -15,6 +15,10 @@
   width: 98%;
 }
 
+.heading{
+  color: var(--text-four);
+}
+
 .PictureCard::before {
   content: '';
   position: absolute;
@@ -33,7 +37,7 @@
 .PictureCard p {
   width: 70%;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-four);
 }
 
 .PictureCard div {
@@ -45,12 +49,12 @@
   border: 1px solid var(--glassmorphism-border);
   width: 50%;
   padding: 20px;
-  color: var(--text-primary);
+  color: var(--text-four);
 }
 
 .PictureCard > div > p {
   width: 100%;
-  color: var(--text-secondary);
+  color: var(--text-four);
 }
 
 .GitHubData {
@@ -92,7 +96,7 @@
 
 .gitHubButton {
   background-color: rgb(59, 130, 246);
-  color: var(--text-primary);
+  color: var(--text-four);
 }
 
 .gitHubButton:hover {
@@ -116,7 +120,7 @@
   background-color: var(--bg-secondary);
   padding: 12px;
   margin-left: 20px;
-  color: var(--text-primary);
+  color: var(--text-four);
 }
 
 .contactMeButton:hover {
@@ -148,7 +152,7 @@
 }
 
 .flashCard button {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   width: 150px;
   height: 45px;
   border-radius: 9999px;
@@ -161,7 +165,7 @@
 }
 
 .flashCard button:hover {
-  background-color: var(--bg-primary);
+  background-color: var(--hover-bg);
 }
 
 .codefile {
@@ -177,7 +181,7 @@
 }
 
 .smallCard {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border-style: solid;
   border-color: var(--border-color);
   border-radius: 20px;
@@ -231,7 +235,7 @@
     width: 85%;
     font-size: 14px;
     line-height: 1.5;
-    color: var(--text-secondary);
+    color: var(--text-four);
   }
 
   .PictureCard div {
@@ -239,17 +243,17 @@
     padding: 15px;
     background: var(--glassmorphism-bg);
     border: 1px solid var(--glassmorphism-border);
-    color: var(--text-primary);
+    color: var(--text-four);
   }
 
   .PictureCard h1 {
     font-size: 1.8rem;
-    color: var(--text-primary);
+    color: var(--text-four);
   }
 
   .PictureCard h3 {
     font-size: 1rem;
-    color: var(--text-secondary);
+    color: var(--text-four);
   }
 
   .GitHubData {
@@ -338,18 +342,18 @@
 
   .PictureCard h1 {
     font-size: 1.5rem;
-    color: var(--text-primary);
+    color: var(--text-four);
   }
 
   .PictureCard h3 {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--text-four);
   }
 
   .PictureCard p {
     width: 69%;
     font-size: 14px;
-    color: var(--text-secondary);
+    color: var(--text-four);
   }
 
   .PictureCard div {
@@ -375,7 +379,9 @@
 
   .GitHubData a {
     flex: none;
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 8px;
     border: 1px solid var(--border-color);
     border-radius: 8px;

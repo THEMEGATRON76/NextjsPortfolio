@@ -1,0 +1,123 @@
+.toggleContainer {
+  position: relative;
+  width: 68px;
+  height: 34px;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Hover effect for the container */
+.toggleContainer:hover {
+  background-color: var(--button-hover);
+  border-color: var(--glassmorphism-border);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* The sliding background circle */
+.slider {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-color: #5b6edb;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 2px 10px rgba(91, 110, 219, 0.4);
+}
+
+/* Icon wrapper for positioning */
+.iconWrapper {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Icon styling */
+.iconWrapper i {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+/* Active icon styling */
+.iconWrapper.active i {
+  color: #ffffff;
+  opacity: 1;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+}
+
+/* Hover effects for icons */
+.toggleContainer:hover .iconWrapper i {
+  opacity: 0.7;
+}
+
+.toggleContainer:hover .iconWrapper.active i {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Light theme specific styles */
+[data-theme="light"] .toggleContainer {
+  background-color:  #EAEFEF;
+  border-color:  rgb(48, 48, 48);
+}
+
+[data-theme="light"] .toggleContainer:hover {
+  background-color: #b2b4b4;;
+  border-color:  rgb(48, 48, 48);
+}
+
+[data-theme="light"] .slider {
+  background-color: #4a90e2;
+  box-shadow: 0 2px 10px rgba(74, 144, 226, 0.4);
+}
+
+[data-theme="light"] .iconWrapper i {
+  color: #666666;
+}
+
+/* Focus styles for accessibility */
+.toggleContainer:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(91, 110, 219, 0.3);
+}
+
+/* Animation for the icons when switching */
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.iconWrapper.active {
+  animation: iconPulse 0.3s ease-out;
+}
+
+/* Optional: Add a subtle glow effect */
+[data-theme="dark"] .slider {
+  background: linear-gradient(135deg, #5b6edb 0%, #7b8ceb 100%);
+}
+
+[data-theme="light"] .slider {
+  background: linear-gradient(135deg, #4a90e2 0%, #6aa0e8 100%);
+}

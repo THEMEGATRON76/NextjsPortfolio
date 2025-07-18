@@ -16,17 +16,17 @@ export default function RecentProjects({ projects,page="work" }) {
   return (
     <>
       <h1>Recent projects</h1>
-      {projects.map((item) => {
+      {projects.map((item,index) => {
         return (
-          <div id="projects" className={classes.projects}>
+          <div key={index} id="projects" className={classes.projects}>
             <h2>{item.heading}</h2>
             {item.date && <p className={classes.dateProjects}>{item.date}</p>}
             <p>{item.desc}</p>
             <Image src={item.picture} alt={item.alt} />
             <div>
-              {item.techs.map((tech) => {
+              {item.techs.map((tech,index) => {
                 return (
-                  <TechTag name={tech.name} img={tech.img} alt={tech.alt} />
+                  <TechTag key={index} name={tech.name} img={tech.img} alt={tech.alt} />
                 );
               })}
             </div>
@@ -37,7 +37,7 @@ export default function RecentProjects({ projects,page="work" }) {
                   window.open(item.url);
                 }}
               >
-                <i class="fa-solid fa-link"></i> Visit Site <i class="fa-solid fa-arrow-right"></i>
+                <i className="fa-solid fa-link"></i> Visit Site <i className="fa-solid fa-arrow-right"></i>
               </button>
             )}
           </div>

@@ -49,6 +49,12 @@ export default function Home() {
       transition: { duration: 0.7, ease: "easeOut" },
     },
   };
+    const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/Geetansh_CV.pdf';  // Your CV file in public folder
+    link.download = 'Geetansh_CV.pdf';  // Downloaded file name
+    link.click();
+  };
 
   return (
     <>
@@ -61,8 +67,8 @@ export default function Home() {
         className={classes.aboutMe}
       >
         <motion.div className={classes.PictureCard} variants={fadeInUp}>
-          <motion.h3 variants={fadeInUp}>ABOUT ME</motion.h3>
-          <motion.h1 variants={fadeInUp}>Hey, I'm Geetansh</motion.h1>
+          <motion.h3 variants={fadeInUp} className={classes.heading}>ABOUT ME</motion.h3>
+          <motion.h1 variants={fadeInUp} className={classes.heading}>Hey, I'm Geetansh</motion.h1>
 
           <motion.p variants={fadeInUp}>
             Full Stack dev from Jaipur transforming coffee into fast, sleek
@@ -165,6 +171,7 @@ export default function Home() {
                 variants={fadeInUp}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.8 }}
+                onClick={handleDownload}
               >
                 Download CV
               </motion.button>

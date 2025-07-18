@@ -21,6 +21,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: 15px;
 }
 .projects > button {
   margin-top: 20px;
@@ -38,9 +39,6 @@
 }
 .projects > button:hover > i {
   margin-left: 5px;
-}
-.projects > div > .techTag {
-  margin-right: 10px;
 }
 .moreProjects {
   display: flex;

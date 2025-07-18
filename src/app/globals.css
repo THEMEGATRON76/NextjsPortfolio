@@ -9,28 +9,34 @@
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-tertiary: rgb(211, 211, 211);
+  --text-four:#ffff;
   --border-color: rgb(48, 48, 48);
   --hover-bg: rgba(68, 68, 68, 0.2);
   --button-hover: rgb(58, 58, 58);
   --glassmorphism-bg: rgba(255, 255, 255, 0.2);
   --glassmorphism-border: rgba(255, 255, 255, 0.84);
   --overlay-bg: rgba(0, 0, 0, 0.199);
+  --selected-nav:rgba(151, 151, 151, 0.945);
+  --fotter-links:#ffff;
 }
 
 /* Light Theme */
 [data-theme="light"] {
-  --bg-primary: #ffffff;
+  --bg-primary: #EAEFEF;
   --bg-secondary: rgb(34, 34, 34); /* Keep same as requested */
   --bg-tertiary: rgb(48, 48, 48); /* Keep same as requested */
-  --text-primary: #000000;
-  --text-secondary: #4a4a4a;
-  --text-tertiary: #666666;
+  --text-primary: #222222;
+  --text-secondary: #383838;
+  --text-tertiary: #000000;
+  --text-four:#ffff;
   --border-color: rgb(48, 48, 48); /* Keep same as requested */
   --hover-bg: rgba(0, 0, 0, 0.1);
   --button-hover: rgb(58, 58, 58); /* Keep same as requested */
-  --glassmorphism-bg: rgba(0, 0, 0, 0.1);
-  --glassmorphism-border: rgba(0, 0, 0, 0.2);
-  --overlay-bg: rgba(255, 255, 255, 0.8);
+  --glassmorphism-bg:rgba(255, 255, 255, 0.2);
+  --glassmorphism-border:rgba(255, 255, 255, 0.84);
+  --overlay-bg:rgba(0, 0, 0, 0.199);
+   --selected-nav:rgba(151, 151, 151, 0.945);
+   --fotter-links: rgb(116, 116, 116);
 }
 /* ===== GLOBAL THEME TRANSITIONS ===== */
 * {
@@ -61,7 +67,7 @@ h3 {
   margin-right: auto;
 }
 a {
-  color: var(--text-primary);
+  color: var(--text-four);
   text-decoration: none;
   font-size: larger;
 }
@@ -75,7 +81,7 @@ button {
   font-size: medium;
   letter-spacing: 1px;
   font-family: Geist Mono;
-  color: var(--text-primary);
+  color: var(--text-four);
 }
 .button {
   height: 45px;
@@ -182,5 +188,37 @@ button, a, .button {
   
   button {
     font-size: 0.8rem;
+  }
+}
+
+/* ===== HOVER TO TOUCH STATES ===== */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects and replace with active states for touch devices */
+  button:hover,
+  .button:hover {
+    transform: none;
+  }
+
+  button:active,
+  .button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  /* Touch-friendly button sizing */
+  .button {
+    min-height: 44px; /* Apple's recommended touch target size */
+    touch-action: manipulation;
+  }
+
+  /* Remove hover animations on touch devices */
+  a:hover {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  a:active {
+    color: var(--text-primary);
+    text-decoration: underline;
   }
 }

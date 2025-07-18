@@ -1,0 +1,434 @@
+/* ===== EXISTING DESKTOP NAVIGATION ===== */
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.settings {
+  margin-left: auto;
+  display: none;
+}
+
+.image {
+  width: 8rem;
+  margin-right: 30px;
+  cursor: pointer;
+  height: auto;
+}
+
+.aTagsDiv {
+  background-color: transparent;
+  color: var(--text-tertiary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.aTagsDiv > a {
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 9px;
+  color: var(--text-tertiary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.navButton {
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 9px;
+  color: var(--text-tertiary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  height: auto;
+  cursor: pointer;
+  border: none;
+}
+
+.navButton > i {
+  font-size: small;
+  margin-left: 2px;
+}
+
+.navButton:hover {
+  background-color: var(--selected-nav);
+  color: var(--text-primary);
+}
+
+.aTagsDiv > a.selected {
+  background-color: var(--selected-nav);
+  color: var(--text-primary);
+}
+
+.selected {
+  background-color: var(--selected-nav);
+  color: var(--text-primary);
+}
+
+.aTagsDiv > a:hover {
+  background-color: var(--selected-nav);
+  color: var(--text-primary);
+}
+
+.dropDownContainer {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Updated dropdown menu styling for better animation support */
+.dropdownMenu {
+  display: block;
+  position: absolute;
+  margin-top: 12px;
+  background-color: var(--bg-primary);
+  padding: 20px 20px 10px 20px;
+  min-width: 160px;
+  border-color: var(--border-color);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 3;
+  border-radius: 12px;
+  border-width: 1.8px;
+  border-style: solid;
+  width: 300px;
+  left: -130px;
+  transform-origin: top center;
+}
+
+.dropdownAnchor {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.dropdownAnchor:hover {
+  background-color: var(--button-hover);
+}
+
+.dropdownAnchor > div > p {
+  font-size: small;
+  margin: 0px 0px 2px 0px;
+  color: var(--text-secondary);
+}
+
+.firstPara {
+  color: var(--text-primary);
+}
+
+.dropdownAnchor > :first-child {
+  display: flex;
+  background-color: var(--bg-tertiary);
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.dropdownAnchor > div > i {
+  font-size: 2.3rem;
+  color: var(--text-four);
+}
+
+/* ===== MOBILE SIDEBAR STYLES ===== */
+.mobileSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  z-index: 1000;
+  background: var(--bg-primary); 
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebarLogo {
+  width: 6rem !important;
+  margin-right: 0 !important;
+  height: auto;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBtn:hover {
+  background-color: var(--glassmorphism-bg);
+  color: var(--text-primary);
+}
+
+.sidebarContent {
+  flex: 1;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebarContent a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  min-height: 50px;
+}
+
+.sidebarContent a:hover {
+  background-color: var(--glassmorphism-bg);
+  color: var(--text-primary);
+  padding-left: 25px;
+}
+
+.sidebarContent a i {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+.sidebarFooter {
+  padding: 20px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.sidebarFooter p {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin: 0;
+}
+
+.sidebarOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+
+.themeToggleDesktop {
+  margin-left: auto;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+/* Theme Toggle Mobile Styles */
+.themeToggleMobile {
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 0.5rem;
+}
+
+.themeToggleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.themeLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.themeLabel i {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* Adjust the settings button margin */
+.settings {
+  margin-left: 0 !important;
+}
+
+/* ===== MOBILE RESPONSIVE NAVIGATION ===== */
+@media screen and (max-width: 768px) {
+  .nav {
+    padding: 15px 20px;
+    gap: 0;
+  }
+  
+  .nav img {
+    width: 6rem;
+    margin-right: 0;
+  }
+  
+  /* Hide all navigation links except settings on mobile */
+  .navLink {
+    display: none !important;
+  }
+  
+  .dropDownContainer {
+    display: none !important;
+  }
+  
+  .settings {
+    display: block;
+    margin-left: auto;
+    background-color: var(--glassmorphism-bg);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  
+  .settings:hover {
+    background-color: var(--hover-bg);
+  }
+  
+  .settings i {
+    font-size: 18px;
+  }
+  .themeToggleDesktop {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav {
+    padding: 10px 15px;
+  }
+  
+  .nav img {
+    width: 5rem;
+  }
+  
+  .mobileSidebar {
+    width: 85%;
+    max-width: 280px;
+  }
+  
+  .sidebarHeader {
+    padding: 15px;
+  }
+  
+  .sidebarLogo {
+    width: 5rem !important;
+  }
+  
+  .sidebarContent a {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  
+  .sidebarContent a:hover {
+    padding-left: 20px;
+  }
+  
+  .sidebarFooter {
+    padding: 15px;
+  }
+}
+
+/* ===== DESKTOP ONLY STYLES ===== */
+@media screen and (min-width: 769px) {
+  .mobileSidebar,
+  .sidebarOverlay {
+    display: none !important;
+  }
+  
+  .settings {
+    cursor: pointer;
+  }
+}
+
+/* ===== TOUCH IMPROVEMENTS ===== */
+@media (hover: none) and (pointer: coarse) {
+  .sidebarContent a:hover {
+    padding-left: 20px;
+  }
+  
+  .sidebarContent a:active {
+    background-color: var(--glassmorphism-bg);
+  }
+  
+  .closeBtn:active {
+    background-color: var(--glassmorphism-bg);
+  }
+  
+  .navButton:active,
+  .nav > a:active {
+    background-color: var(--hover-bg);
+  }
+  
+  .dropdownAnchor:active {
+    background-color: var(--bg-tertiary);
+  }
+}
+
+/* ===== ANIMATION SPECIFIC STYLES ===== */
+.mobileSidebar * {
+  user-select: none;
+}
+
+.dropdownMenu * {
+  user-select: none;
+}
+
+/* Prevent text selection during animations */
+.nav * {
+  user-select: none;
+}
+
+/* Enhanced button states for better feedback */
+.navButton,
+.nav > a {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Active states for better touch feedback */
+.navButton:active,
+.nav > a:active {
+  background-color: var(--hover-bg) !important;
+}
+
+/* Improved dropdown positioning on smaller screens */
+@media screen and (max-width: 1024px) {
+  .dropdownMenu {
+    left: -200px;
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .dropdownMenu {
+    left: -250px;
+    width: 280px;
+  }
+}
