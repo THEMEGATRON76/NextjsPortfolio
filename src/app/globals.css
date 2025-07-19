@@ -32,7 +32,7 @@
   --border-color: rgb(48, 48, 48); /* Keep same as requested */
   --hover-bg: rgba(0, 0, 0, 0.1);
   --button-hover: rgb(58, 58, 58); /* Keep same as requested */
-  --glassmorphism-bg:rgba(255, 255, 255, 0.2);
+  --glassmorphism-bg:rgba(165, 165, 165, 0.534);
   --glassmorphism-border:rgba(255, 255, 255, 0.84);
   --overlay-bg:rgba(0, 0, 0, 0.199);
    --selected-nav:rgba(151, 151, 151, 0.945);
@@ -53,7 +53,7 @@ body {
   font-family: Geist Mono;
   overflow-x: hidden;
   margin: 0px;
-  padding: 0px;
+  padding-top: 30px;
 }
 h1,
 h2,
@@ -148,6 +148,9 @@ button, a, .button {
 
 /* Mobile Styles (480px and below) */
 @media screen and (max-width: 480px) {
+  body {
+  padding-top: 10px;
+}
   #holder {
     width: 92%;
     margin-left: 3%;

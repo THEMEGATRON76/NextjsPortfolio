@@ -115,6 +115,9 @@
   margin: 0px 0px 2px 0px;
   color: var(--text-secondary);
 }
+.dropdownAnchor:hover > div >p{
+  color: var(--text-four);
+}
 
 .firstPara {
   color: var(--text-primary);
@@ -275,7 +278,7 @@
 
 /* Adjust the settings button margin */
 .settings {
-  margin-left: 0 !important;
+  margin-left: auto !important;
 }
 
 /* ===== MOBILE RESPONSIVE NAVIGATION ===== */

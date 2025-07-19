@@ -331,6 +331,9 @@
 }
 
 @media screen and (max-width: 480px) {
+  .aboutMe {
+  margin-top: 20px;
+}
   .PictureCard {
     padding: 15px;
     margin: 0 5px;
@@ -423,13 +426,11 @@
     align-items: center;
     width: 100%;
     padding: 15px 10px 0px 10px;
-    margin-left: 30px;
   }
-
   .contactMeButton {
-    width: 266px;
+    width: 213px;
+    margin-left: 20px;
   }
-
   .gitHubButton > .fa-brands {
     margin-left: 25px;
   }
@@ -479,13 +480,13 @@
     align-items: center;
     width: 100%;
     padding: 15px 10px 0px 10px;
-    margin-left: 30px;
+    margin-left: 0px;
   }
-  .gitHubButton,
   .contactMeButton {
     margin-left: 20px;
   }
   .contactMeButton {
-    width: 259px;
+    width: 213px;
+    margin-left: 20px;
   }
 }

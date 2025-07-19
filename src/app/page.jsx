@@ -9,8 +9,11 @@ import Link from "next/link";
 import classes from "./page.module.css"
 import ContactMe from "@/components/ContactMe";
 import RecentProjects from "@/components/RecentProjects";
+import useGitHubUser from '@/hooks/useGithub';
+
 
 export default function Home() {
+  const { userData, loading, error } = useGitHubUser();
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -90,16 +93,16 @@ export default function Home() {
 
         <motion.div className={classes.GitHubData} variants={fadeInUp}>
           <motion.a href="" variants={fadeInUp}>
-            <i className="fa-solid fa-star"></i> 0 stars
+            <i className="fa-solid fa-star"></i> {userData.stars} stars
           </motion.a>
           <motion.a href="" variants={fadeInUp}>
-            <i className="fa-solid fa-code-fork"></i> 0 repositories forks
+            <i className="fa-solid fa-code-fork"></i> {userData.repositories} repositories forks
           </motion.a>
           <motion.a href="" variants={fadeInUp}>
-            <i className="fa-solid fa-code-branch"></i> 0 commits{" "}
+            <i className="fa-solid fa-code-branch"></i> {userData.commits} commits{" "}
           </motion.a>
           <motion.a href="" variants={fadeInUp}>
-            <i className="fa-solid fa-users"></i> 0 Github followers
+            <i className="fa-solid fa-users"></i> {userData.followers} Github followers
           </motion.a>
         </motion.div>
 
