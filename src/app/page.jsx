@@ -53,12 +53,12 @@ export default function Home() {
   };
   async function  handleDownload(){
     try {
-      const response = await fetch("/Geetansh_CV.pdf");
+      const response = await fetch("/geetansh_CV.pdf");
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "Geetansh_CV.pdf";
+      a.download = "geetansh_CV.pdf";
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -66,7 +66,7 @@ export default function Home() {
     } catch (error) {
       console.error("Download failed:", error);
       // Fallback - open in new tab
-      window.open("/Geetansh_CV.pdf", "_blank");
+      window.open("/geetansh_CV.pdf", "_blank");
     }
   };
 
