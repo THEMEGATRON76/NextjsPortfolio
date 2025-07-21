@@ -3,17 +3,16 @@
 "use client";
 import { techIknow } from "@/data/techIknow";
 import { motion } from "framer-motion";
-import {homeWork} from "@/data/myWorkData";
+import { homeWork } from "@/data/myWorkData";
 import TechTag from "@/components/TechTag";
 import Link from "next/link";
-import classes from "./page.module.css"
+import classes from "./page.module.css";
 import ContactMe from "@/components/ContactMe";
 import RecentProjects from "@/components/RecentProjects";
-import useGitHubUser from '@/hooks/useGithub';
-
+import useGitHubUser from "@/hooks/useGithub";
 
 export default function Home() {
-  const {userData} = useGitHubUser();
+  const { userData } = useGitHubUser();
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -52,11 +51,23 @@ export default function Home() {
       transition: { duration: 0.7, ease: "easeOut" },
     },
   };
-    const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/Geetansh_CV.pdf';  // Your CV file in public folder
-    link.download = 'Geetansh_CV.pdf';  // Downloaded file name
-    link.click();
+  async function  handleDownload(){
+    try {
+      const response = await fetch("/Geetansh_CV.pdf");
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Geetansh_CV.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Download failed:", error);
+      // Fallback - open in new tab
+      window.open("/Geetansh_CV.pdf", "_blank");
+    }
   };
 
   return (
@@ -70,8 +81,12 @@ export default function Home() {
         className={classes.aboutMe}
       >
         <motion.div className={classes.PictureCard} variants={fadeInUp}>
-          <motion.h3 variants={fadeInUp} className={classes.heading}>ABOUT ME</motion.h3>
-          <motion.h1 variants={fadeInUp} className={classes.heading}>Hey, I'm Geetansh</motion.h1>
+          <motion.h3 variants={fadeInUp} className={classes.heading}>
+            ABOUT ME
+          </motion.h3>
+          <motion.h1 variants={fadeInUp} className={classes.heading}>
+            Hey, I'm Geetansh
+          </motion.h1>
 
           <motion.p variants={fadeInUp}>
             Full Stack dev from Jaipur transforming coffee into fast, sleek
@@ -92,17 +107,36 @@ export default function Home() {
         </motion.div>
 
         <motion.div className={classes.GitHubData} variants={fadeInUp}>
-          <motion.a href="https://github.com/THEMEGATRON76" target="_blank" variants={fadeInUp}>
+          <motion.a
+            href="https://github.com/THEMEGATRON76"
+            target="_blank"
+            variants={fadeInUp}
+          >
             <i className="fa-solid fa-star"></i> {userData.stars} stars
           </motion.a>
-          <motion.a href="https://github.com/THEMEGATRON76" target="_blank" variants={fadeInUp}>
-            <i className="fa-solid fa-code-fork"></i> {userData.repositories} repositories forks
+          <motion.a
+            href="https://github.com/THEMEGATRON76"
+            target="_blank"
+            variants={fadeInUp}
+          >
+            <i className="fa-solid fa-code-fork"></i> {userData.repositories}{" "}
+            repositories forks
           </motion.a>
-          <motion.a href="https://github.com/THEMEGATRON76" target="_blank" variants={fadeInUp}>
-            <i className="fa-solid fa-code-branch"></i> {userData.commits} commits{" "}
+          <motion.a
+            href="https://github.com/THEMEGATRON76"
+            target="_blank"
+            variants={fadeInUp}
+          >
+            <i className="fa-solid fa-code-branch"></i> {userData.commits}{" "}
+            commits{" "}
           </motion.a>
-          <motion.a href="https://github.com/THEMEGATRON76" target="_blank" variants={fadeInUp}>
-            <i className="fa-solid fa-users"></i> {userData.followers} Github followers
+          <motion.a
+            href="https://github.com/THEMEGATRON76"
+            target="_blank"
+            variants={fadeInUp}
+          >
+            <i className="fa-solid fa-users"></i> {userData.followers} Github
+            followers
           </motion.a>
         </motion.div>
 
@@ -137,56 +171,59 @@ export default function Home() {
               </motion.p>
 
               <motion.div className={classes.buttonHolder} variants={fadeInUp}>
-                <motion.div
-                  whileTap={{ scale: 0.8 }}
-                >
+                <motion.div whileTap={{ scale: 0.8 }}>
                   <a
                     href="https://github.com/THEMEGATRON76"
                     target="_blank"
                     className={`${classes.gitHubButton} button`}
                   >
                     <i className="fa-brands fa-github"></i> View my Github{" "}
-                    <i style={{fontSize:"18px"}} className={`fa-solid fa-arrow-right ${classes.rightarrow}`}></i>
+                    <i
+                      style={{ fontSize: "18px" }}
+                      className={`fa-solid fa-arrow-right ${classes.rightarrow}`}
+                    ></i>
                   </a>
                 </motion.div>
 
-                <motion.div
-                  whileTap={{ scale: 0.8 }}
-                >
-                <Link href={"contact-me"} className={`${classes.contactMeButton} button`}>
-                  <i className="fa-brands"></i>Contact Me{" "}
-                  <i className="fa-solid fa-arrow-right"></i>
-                </Link>
+                <motion.div whileTap={{ scale: 0.8 }}>
+                  <Link
+                    href={"contact-me"}
+                    className={`${classes.contactMeButton} button`}
+                  >
+                    <i className="fa-brands"></i>Contact Me{" "}
+                    <i className="fa-solid fa-arrow-right"></i>
+                  </Link>
                 </motion.div>
               </motion.div>
             </motion.div>
 
             <motion.div className={classes.flashCard} variants={slideInRight}>
               <motion.h3 variants={fadeInUp}>
-                <i className={`fa-solid fa-file-code ${classes.codefile}`}></i> MY STUDIO
+                <i className={`fa-solid fa-file-code ${classes.codefile}`}></i>{" "}
+                MY STUDIO
               </motion.h3>
               <motion.p variants={fadeInUp}>
                 Hey there! 👋 I'm Geetansh welcome to my digital playground.
                 More than just a portfolio, this is where creativity, code, and
                 curiosity collide. Dive in and explore my journey.
               </motion.p>
-                <Link href="/Geetansh_CV.pdf" download="Geetansh_CV.pdf">
-                                <motion.button
-                variants={fadeInUp}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.8 }}
-                //onClick={handleDownload}
-              >
-                Download CV
-              </motion.button>
-                </Link>
+                <motion.button
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.8 }}
+                  onClick={handleDownload}
+                >
+                  Download CV
+                </motion.button>
               <motion.div variants={staggerContainer}>
                 <motion.div
                   className={classes.smallCard}
                   variants={fadeInUp}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
-                  <i className={`fa-solid fa-laptop-code ${classes.codefile}`}></i>
+                  <i
+                    className={`fa-solid fa-laptop-code ${classes.codefile}`}
+                  ></i>
                   <h4>Web Development</h4>
                   <p>
                     Building high-performance websites with clean code and
@@ -199,7 +236,9 @@ export default function Home() {
                   variants={fadeInUp}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
-                  <i className={`fa-solid fa-paintbrush ${classes.codefile}`}></i>
+                  <i
+                    className={`fa-solid fa-paintbrush ${classes.codefile}`}
+                  ></i>
                   <h4>UI / UX</h4>
                   <p>
                     Crafting modern, intuitive user interfaces that engage and
@@ -234,9 +273,22 @@ export default function Home() {
           Over the years, I have worked with a variety of technologies. Here are
           some of the technologies I have experience with:
         </motion.p>
-        <motion.div id="TechDiv" className={classes.TechDiv} variants={staggerContainer}>
+        <motion.div
+          id="TechDiv"
+          className={classes.TechDiv}
+          variants={staggerContainer}
+        >
           {techIknow.map((tech, index) => {
-            return <TechTag classparent={classes.techTag} key={index} name={tech.name} img={tech.img} alt={tech.alt} webLink={tech.webLink} />;
+            return (
+              <TechTag
+                classparent={classes.techTag}
+                key={index}
+                name={tech.name}
+                img={tech.img}
+                alt={tech.alt}
+                webLink={tech.webLink}
+              />
+            );
           })}
         </motion.div>
         <motion.p className={classes.centerpara} variants={fadeInUp}>
