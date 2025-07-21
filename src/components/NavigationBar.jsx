@@ -171,17 +171,6 @@ export default function NavigationBar() {
 
         <motion.div className={styles.aTagsDiv} whileTap={{ scale: 0.95 }}>
           <Link
-            href="/contact-me"
-            className={`${styles.navLink} ${
-              isLinkActive("/contact-me") && !dropDown ? styles.selected : ""
-            }`}
-          >
-            Contact Me
-          </Link>
-        </motion.div>
-
-        <motion.div className={styles.aTagsDiv} whileTap={{ scale: 0.95 }}>
-          <Link
             href="/blog"
             className={`${styles.navLink} ${
               isLinkActive("/blog") && !dropDown ? styles.selected : ""

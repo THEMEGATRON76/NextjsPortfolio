@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
           strategy="afterInteractive"
         />
         <Script
-          src="../scroll/scroll.js"
+          src="./scroll/scroll.js"
         />
       </body>
     </html>

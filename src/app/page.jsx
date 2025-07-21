@@ -13,7 +13,7 @@ import useGitHubUser from '@/hooks/useGithub';
 
 
 export default function Home() {
-  const { userData, loading, error } = useGitHubUser();
+  const {userData} = useGitHubUser();
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -92,16 +92,16 @@ export default function Home() {
         </motion.div>
 
         <motion.div className={classes.GitHubData} variants={fadeInUp}>
-          <motion.a href="" variants={fadeInUp}>
+          <motion.a href="https://github.com/THEMEGATRON76" target="_blank" variants={fadeInUp}>
             <i className="fa-solid fa-star"></i> {userData.stars} stars
           </motion.a>
-          <motion.a href="" variants={fadeInUp}>
+          <motion.a href="https://github.com/THEMEGATRON76" target="_blank" variants={fadeInUp}>
             <i className="fa-solid fa-code-fork"></i> {userData.repositories} repositories forks
           </motion.a>
-          <motion.a href="" variants={fadeInUp}>
+          <motion.a href="https://github.com/THEMEGATRON76" target="_blank" variants={fadeInUp}>
             <i className="fa-solid fa-code-branch"></i> {userData.commits} commits{" "}
           </motion.a>
-          <motion.a href="" variants={fadeInUp}>
+          <motion.a href="https://github.com/THEMEGATRON76" target="_blank" variants={fadeInUp}>
             <i className="fa-solid fa-users"></i> {userData.followers} Github followers
           </motion.a>
         </motion.div>
@@ -170,15 +170,16 @@ export default function Home() {
                 More than just a portfolio, this is where creativity, code, and
                 curiosity collide. Dive in and explore my journey.
               </motion.p>
-              <motion.button
+                <Link href="/Geetansh_CV.pdf" download="Geetansh_CV.pdf">
+                                <motion.button
                 variants={fadeInUp}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.8 }}
-                onClick={handleDownload}
+                //onClick={handleDownload}
               >
                 Download CV
               </motion.button>
-
+                </Link>
               <motion.div variants={staggerContainer}>
                 <motion.div
                   className={classes.smallCard}
@@ -235,7 +236,7 @@ export default function Home() {
         </motion.p>
         <motion.div id="TechDiv" className={classes.TechDiv} variants={staggerContainer}>
           {techIknow.map((tech, index) => {
-            return <TechTag classparent={classes.techTag} key={index} name={tech.name} img={tech.img} alt={tech.alt} />;
+            return <TechTag classparent={classes.techTag} key={index} name={tech.name} img={tech.img} alt={tech.alt} webLink={tech.webLink} />;
           })}
         </motion.div>
         <motion.p className={classes.centerpara} variants={fadeInUp}>
