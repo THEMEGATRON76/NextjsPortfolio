@@ -46,7 +46,7 @@ const porjObj = [
       { name: "Tailwind", img: tailWindImg, alt: "Tailwind" },
       { name: "Firebase", img: fireBase, alt: "Firebase" },
     ],
-    url: "https://seemsfit.com/",
+    url: "https://seems-fit-web-app.vercel.app/",
   },
   {
     heading: "Gautam Granites",
